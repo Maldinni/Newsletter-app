@@ -1,0 +1,142 @@
+
+
+[[sources]]
+name = "Jovem Pan - Política"
+type = "listing"
+url = "https://jovempan.com.br/noticias/politica"
+allow_domains = ["jovempan.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://jovempan\\.com\\.br/noticias/politica/.+\\.html$"
+]
+deny_url_patterns = [
+  "/tag/",
+  "/autor/",
+  "/programas/",
+  "/videos/",
+  "/podcasts/",
+  "/esportes/",
+  "/entretenimento/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[sources.pagination]
+mode = "query"
+page_param = "page"
+start = 1
+end = 1000
+
+[[sources]]
+name = "Jovem Pan - Economia"
+type = "listing"
+url = "https://jovempan.com.br/noticias/economia"
+allow_domains = ["jovempan.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://jovempan\\.com\\.br/noticias/economia/.+\\.html$"
+]
+deny_url_patterns = [
+  "/tag/",
+  "/autor/",
+  "/programas/",
+  "/videos/",
+  "/podcasts/",
+  "/esportes/",
+  "/entretenimento/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[sources.pagination]
+mode = "query"
+page_param = "page"
+start = 1
+end = 1000
+
+[[sources]]
+name = "Instituto Mises Brasil"
+type = "listing"
+url = "https://mises.org.br/artigos"
+allow_domains = ["mises.org.br"]
+link_selector = "a[href]"
+allow_url_patterns = ["/article/"]
+deny_url_patterns = [
+  "/autor/",
+  "/sobre/",
+  "/quem-somos/",
+  "/podcasts/"
+]
+
+[sources.pagination]
+mode = "query"
+page_param = "page"
+start = 1
+end = 1000
+
+
+[[sources]]
+name = "Conexão Política"
+type = "listing"
+url = "https://www.conexaopolitica.com.br/"
+allow_domains = ["conexaopolitica.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = ["/politica/|/brasil/|/mundo/"]
+deny_url_patterns = [
+  "/autor/",
+  "/categoria/",
+  "/tag/",
+  "/podcast/"
+]
+
+[sources.pagination]
+mode = "query"
+page_param = "page"
+start = 1
+end = 1000
+
+[[sources]]
+name = "Folha Política"
+type = "listing"
+url = "https://www.folhapolitica.org/"
+allow_domains = ["folhapolitica.org"]
+link_selector = "a[href]"
+allow_url_patterns = ["/20\\d{2}/"]
+deny_url_patterns = [
+  "/search/",
+  "/p/sobre.html",
+  "/feeds/",
+  "/label/"
+]
+
+[sources.pagination]
+mode = "query"
+page_param = "page"
+start = 1
+end = 1000
+
+
+[[sources]]
+name = "Brasil Paralelo"
+type = "listing"
+url = "https://www.brasilparalelo.com.br/artigos"
+allow_domains = ["brasilparalelo.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = ["/artigos/"]
+deny_url_patterns = [
+  "/lp/",
+  "/series/",
+  "/documentarios/",
+  "/podcasts/",
+  "/cursos/"
+]
+
+[sources.pagination]
+mode = "query"
+page_param = "page"
+start = 1
+end = 1000
