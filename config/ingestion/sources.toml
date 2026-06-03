@@ -1,4 +1,151 @@
+[[sources]]
+name = "JCO Opinião"
+type = "listing"
+url = "https://www.jornaldacidadeonline.com.br/noticias/politica/opiniao"
+allow_domains = ["jornaldacidadeonline.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "/noticias/[0-9]+/"
+]
+deny_url_patterns = [
+  "/noticias/politica/opiniao$",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
 
+[[sources]]
+name = "JCO Economia"
+type = "listing"
+url = "https://www.jornaldacidadeonline.com.br/noticias/economia"
+allow_domains = ["jornaldacidadeonline.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "/noticias/[0-9]+/"
+]
+deny_url_patterns = [
+  "/noticias/economia$",
+  "/noticias/economia/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[[sources]]
+name = "JCO Política"
+type = "listing"
+url = "https://www.jornaldacidadeonline.com.br/noticias/politica"
+allow_domains = ["jornaldacidadeonline.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "/noticias/[0-9]+/"
+]
+deny_url_patterns = [
+  "/noticias/politica$",
+  "/noticias/politica/",
+  "/noticias/economia",
+  "/noticias/clima",
+  "/noticias/esportes",
+  "/debate-jco",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[[sources]]
+name = "Terra Brasil Notícias - Economia"
+type = "listing"
+url = "https://terrabrasilnoticias.com/category/economia/"
+allow_domains = ["terrabrasilnoticias.com"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://terrabrasilnoticias\\.com/20\\d{2}/\\d{2}/"
+]
+deny_url_patterns = [
+  "/category/",
+  "/tag/",
+  "/author/",
+  "/page/",
+  "/feed/",
+  "/wp-content/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[[sources]]
+name = "Terra Brasil Notícias - Política"
+type = "listing"
+url = "https://terrabrasilnoticias.com/category/politica/"
+allow_domains = ["terrabrasilnoticias.com"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://terrabrasilnoticias\\.com/20\\d{2}/\\d{2}/"
+]
+deny_url_patterns = [
+  "/category/",
+  "/tag/",
+  "/author/",
+  "/page/",
+  "/feed/",
+  "/wp-content/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[[sources]]
+name = "Gazeta do Povo - Economia"
+type = "listing"
+url = "https://www.gazetadopovo.com.br/economia/"
+allow_domains = ["gazetadopovo.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://www\\.gazetadopovo\\.com\\.br/economia/[^/]+/?$"
+]
+deny_url_patterns = [
+  "/autor/",
+  "/opiniao/",
+  "/videos/",
+  "/guia/",
+  "/institucional/",
+  "/tags/",
+  "/tudo-sobre/",
+  "/ao-vivo/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
+
+[[sources]]
+name = "Gazeta do Povo - República"
+type = "listing"
+url = "https://www.gazetadopovo.com.br/republica/"
+allow_domains = ["gazetadopovo.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://www\\.gazetadopovo\\.com\\.br/republica/[^/]+/?$"
+]
+deny_url_patterns = [
+  "/autor/",
+  "/opiniao/",
+  "/videos/",
+  "/guia/",
+  "/institucional/",
+  "/tags/",
+  "/tudo-sobre/",
+  "/ao-vivo/",
+  "facebook.com",
+  "instagram.com",
+  "twitter.com",
+  "youtube.com"
+]
 
 [[sources]]
 name = "Jovem Pan - Política"
@@ -23,12 +170,6 @@ deny_url_patterns = [
   "youtube.com"
 ]
 
-[sources.pagination]
-mode = "query"
-page_param = "page"
-start = 1
-end = 1000
-
 [[sources]]
 name = "Jovem Pan - Economia"
 type = "listing"
@@ -52,91 +193,154 @@ deny_url_patterns = [
   "youtube.com"
 ]
 
-[sources.pagination]
-mode = "query"
-page_param = "page"
-start = 1
-end = 1000
-
 [[sources]]
 name = "Instituto Mises Brasil"
 type = "listing"
 url = "https://mises.org.br/artigos"
 allow_domains = ["mises.org.br"]
 link_selector = "a[href]"
-allow_url_patterns = ["/article/"]
+allow_url_patterns = ["^https://mises\\.org\\.br/artigos/[0-9]+/.+/?$"]
 deny_url_patterns = [
-  "/autor/",
-  "/sobre/",
-  "/quem-somos/",
-  "/podcasts/"
+  "/author/",
+  "/autores/",
+  "/category/",
+  "/blog/",
+  "/livros/",
+  "/spotify/",
+  "/podcast/",
+  "/sobre",
+  "/quemsomos",
+  "facebook.com",
+  "instagram.com",
+  "linkedin.com",
+  "youtube.com",
+  "wa.me",
+  "creativecommons.org"
 ]
 
 [sources.pagination]
-mode = "query"
-page_param = "page"
+mode = "path"
+template = "/artigos/page/{page}/"
 start = 1
 end = 1000
 
-
 [[sources]]
-name = "Conexão Política"
+name = "Conexão Política - Política"
 type = "listing"
-url = "https://www.conexaopolitica.com.br/"
+url = "https://www.conexaopolitica.com.br/category/politica/"
 allow_domains = ["conexaopolitica.com.br"]
 link_selector = "a[href]"
-allow_url_patterns = ["/politica/|/brasil/|/mundo/"]
+allow_url_patterns = [
+  "^https://www\\.conexaopolitica\\.com\\.br/politica/.+/?$"
+]
 deny_url_patterns = [
-  "/autor/",
-  "/categoria/",
+  "/author/",
   "/tag/",
+  "/category/",
+  "/feed/",
+  "/wp-content/",
   "/podcast/"
 ]
 
 [sources.pagination]
-mode = "query"
-page_param = "page"
+mode = "path"
+template = "/category/politica/page/{page}/"
 start = 1
 end = 1000
 
 [[sources]]
-name = "Folha Política"
+name = "Conexão Política - Economia"
 type = "listing"
-url = "https://www.folhapolitica.org/"
-allow_domains = ["folhapolitica.org"]
+url = "https://www.conexaopolitica.com.br/category/economia/"
+allow_domains = ["conexaopolitica.com.br"]
 link_selector = "a[href]"
-allow_url_patterns = ["/20\\d{2}/"]
+allow_url_patterns = [
+  "^https://www\\.conexaopolitica\\.com\\.br/economia/.+/?$"
+]
 deny_url_patterns = [
-  "/search/",
-  "/p/sobre.html",
-  "/feeds/",
-  "/label/"
+  "/author/",
+  "/tag/",
+  "/category/",
+  "/feed/"
 ]
 
 [sources.pagination]
-mode = "query"
-page_param = "page"
+mode = "path"
+template = "/category/politica/page/{page}/"
 start = 1
 end = 1000
 
+[[sources]]
+name = "Conexão Política - Eleições"
+type = "listing"
+url = "https://www.conexaopolitica.com.br/category/eleicoes-2026/"
+allow_domains = ["conexaopolitica.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://www\\.conexaopolitica\\.com\\.br/eleicoes-2026/.+/?$"
+]
+deny_url_patterns = [
+  "/author/",
+  "/tag/",
+  "/category/",
+  "/feed/"
+]
+
+[sources.pagination]
+mode = "path"
+template = "/category/politica/page/{page}/"
+start = 1
+end = 1000
 
 [[sources]]
-name = "Brasil Paralelo"
+name = "Brasil Paralelo - Política"
 type = "listing"
-url = "https://www.brasilparalelo.com.br/artigos"
+url = "https://www.brasilparalelo.com.br/noticias?categoria=politica"
 allow_domains = ["brasilparalelo.com.br"]
 link_selector = "a[href]"
-allow_url_patterns = ["/artigos/"]
+allow_url_patterns = [
+  "^https://www\\.brasilparalelo\\.com\\.br/noticias/[a-z0-9-]+$"
+]
 deny_url_patterns = [
-  "/lp/",
-  "/series/",
+  "/artigos/",
+  "/cursos/",
   "/documentarios/",
-  "/podcasts/",
-  "/cursos/"
+  "/series/",
+  "/lp/",
+  "/membros/",
+  "/login/"
 ]
 
-[sources.pagination]
-mode = "query"
-page_param = "page"
-start = 1
-end = 1000
+[[sources]]
+name = "Brasil Paralelo - Mundo"
+type = "listing"
+url = "https://www.brasilparalelo.com.br/noticias?categoria=mundo"
+allow_domains = ["brasilparalelo.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://www\\.brasilparalelo\\.com\\.br/noticias/[a-z0-9-]+$"
+]
+deny_url_patterns = [
+  "/artigos/",
+  "/cursos/",
+  "/documentarios/",
+  "/series/",
+  "/lp/"
+]
+
+[[sources]]
+name = "Brasil Paralelo - Economia"
+type = "listing"
+url = "https://www.brasilparalelo.com.br/noticias?categoria=economia"
+allow_domains = ["brasilparalelo.com.br"]
+link_selector = "a[href]"
+allow_url_patterns = [
+  "^https://www\\.brasilparalelo\\.com\\.br/noticias/[a-z0-9-]+$"
+]
+deny_url_patterns = [
+  "/artigos/",
+  "/cursos/",
+  "/documentarios/",
+  "/series/",
+  "/lp/"
+]

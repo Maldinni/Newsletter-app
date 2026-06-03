@@ -50,6 +50,7 @@ def discover_article_urls_listing(
             continue
 
         full = urljoin(listing_url, href)
+        #print(full)
 
         if allow_domains:
             netloc = urlparse(full).netloc

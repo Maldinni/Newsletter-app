@@ -37,7 +37,7 @@ def main():
 
     # Initialize the embedding model
     embedding_model = SentenceTransformerEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_name="Qwen/Qwen3-Embedding-8B",
         batch_size=batch_size
     )
 
