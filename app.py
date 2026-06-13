@@ -397,7 +397,7 @@ hr { border-color: var(--border) !important; }
 # Sidebar — Logo + Navegação
 # ─────────────────────────────────────────────
 with st.sidebar:
-    st.image("C:/Users/enzo.rodrigues/Documents/Github/All-in-crawler/logoofcapudados.png", width=160)
+    st.image(os.path.join(os.path.dirname(os.path.abspath(__file__)), "logoofcapudados.png"), width=160)
     st.markdown('<hr style="border-color:var(--border);margin:0.75rem 0 1rem">', unsafe_allow_html=True)
 
     st.markdown('<p class="nt-section-label">Navegação</p>', unsafe_allow_html=True)

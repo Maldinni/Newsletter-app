@@ -37,7 +37,7 @@ def main():
 
     # Initialize the embedding model
     embedding_model = SentenceTransformerEmbeddings(
-        model_name="Qwen/Qwen3-Embedding-8B",
+        model_name=model_name,
         batch_size=batch_size
     )
 
@@ -64,7 +64,8 @@ def main():
         # Generate embeddings for texts
         embedded_texts = embedding_model.embed_documents(texts)
 
-        # Store PMIDs and embeddings
+        # Store URLs, texts and embeddings
+        text_embeddings.urls = selection['canonical_url'].tolist()
         text_embeddings.texts = selection['text'].tolist()
         text_embeddings.embeddings = embedded_texts
 
