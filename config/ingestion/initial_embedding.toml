@@ -1,4 +1,4 @@
-model = 'all-MiniLM-L6-v2'
+model = 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
 items_per_shard = 100
 
 [api_calls]
