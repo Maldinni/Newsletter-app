@@ -36,6 +36,16 @@ required_fields = [
                 'Dimensão 9 - Tipo de Veículo de Mídia'
         ]
 
+[trend_ranking]
+recent_days = 7          # janela "recente"
+baseline_days = 28       # janela-base anterior à recente (para aceleração)
+min_cluster_size = 3     # descarta ruído/singletons do Leiden
+top_k = 2                # quantos clusters em alta imprimir (2x/dia)
+weight_acceleration = 0.35
+weight_recent_volume = 0.30
+weight_recency = 0.20
+weight_size = 0.15
+
 [llm]
 temperature = 0.1
 model_name = 'qwen2.5:7b'

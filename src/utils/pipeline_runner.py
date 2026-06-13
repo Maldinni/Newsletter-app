@@ -16,6 +16,7 @@ PIPELINE_STEPS = [
     ("Step 9 — Cluster Distinction", PROJECT_ROOT / "cluster_distinction.py"),
     ("Step 10 — Trend Extraction", PROJECT_ROOT / "extract_trends.py"),
     ("Step 11 — Dimension Assessment", PROJECT_ROOT / "assess_dimensions.py"),
+    ("Step 12 — Trend Ranking", PROJECT_ROOT / "rank_trends.py"),
 ]
 
 
