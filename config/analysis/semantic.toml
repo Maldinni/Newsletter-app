@@ -54,6 +54,28 @@ audience = "público conservador brasileiro de direita"
 tone = "direto, firme e editorializado, sem inventar fatos"
 ai_disclosure = "Conteúdo produzido com auxílio de inteligência artificial a partir das fontes citadas."
 
+[image_search]
+top_k = 2                 # quantos posts buscar imagem (alinhar com 2x/dia)
+per_source = 6           # candidatas por fonte
+max_keywords = 3         # nº de keywords no fallback de query
+# A Wikimedia exige um User-Agent identificável com contato. Troque o e-mail.
+user_agent = "AgitaNewsBot/1.0 (contato@seudominio.com)"
+
+[card]
+width = 1080
+height = 1350           # formato vertical de Instagram (4:5)
+margin = 64
+headline_size = 64
+small_size = 26
+line_spacing = 12
+gradient_start = 0.45   # a partir de que altura (%) começa o escurecimento
+gradient_max_alpha = 0.85
+accent_rgb = [255, 107, 26]
+logo_width = 150
+headline_font = ""      # caminho .ttf opcional; vazio = fonte do sistema
+small_font = ""
+logo_path = "logoofcapudados.png"
+
 [llm]
 temperature = 0.1
 model_name = 'qwen2.5:7b'
