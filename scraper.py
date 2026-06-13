@@ -5,8 +5,6 @@ from src.utils.checkpoints import load_processed_urls, save_processed_urls
 from src.utils.discovery import (
     discover_article_urls_listing,
     build_listing_pages,
-    discover_g1_urls_follow_see_more,
-    discover_urls_with_wp_pagination,
 )
 from src.utils.extraction import extract_with_retry
 from src.utils.io import ensure_dirs, determine_output_filename, append_csv
@@ -42,39 +40,19 @@ def main():
             try:
                 all_urls: list[str] = []
 
-                # G1 specific case
-                if source["name"] in ("G1", "G1 Piauí"):
-                    urls = discover_g1_urls_follow_see_more(
-                        start_url=source["url"],
+                # Paginação definida no TOML (path_format / query / sem paginação)
+                listing_pages = build_listing_pages(source)
+                for listing_url in listing_pages:
+                    urls = discover_article_urls_listing(
+                        listing_url=listing_url,
                         allow_domains=source.get("allow_domains"),
                         user_agent=scraping["user_agent"],
                         timeout_sec=int(scraping["timeout_sec"]),
                         link_selector=source.get("link_selector", "a[href]"),
                         allow_url_patterns=source.get("allow_url_patterns"),
                         deny_url_patterns=source.get("deny_url_patterns"),
-                        max_pages=int(scraping.get("max_pages_per_source", 100)),
                     )
                     all_urls.extend(urls)
-
-                # WordPress pagination
-                elif source["name"].startswith("Boletim Brio"):
-                    urls = discover_urls_with_wp_pagination(source, scraping)
-                    all_urls.extend(urls)
-
-                # Pagination written in TOML
-                else:
-                    listing_pages = build_listing_pages(source)
-                    for listing_url in listing_pages:
-                        urls = discover_article_urls_listing(
-                            listing_url=listing_url,
-                            allow_domains=source.get("allow_domains"),
-                            user_agent=scraping["user_agent"],
-                            timeout_sec=int(scraping["timeout_sec"]),
-                            link_selector=source.get("link_selector", "a[href]"),
-                            allow_url_patterns=source.get("allow_url_patterns"),
-                            deny_url_patterns=source.get("deny_url_patterns"),
-                        )
-                        all_urls.extend(urls)
 
             except Exception as e:
                 print(f"[WARN] Failed to discover URLs for {source['name']}: {e}")

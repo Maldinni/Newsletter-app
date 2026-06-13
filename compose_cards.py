@@ -7,9 +7,12 @@ from src.utils.cards import compose_card, build_image_credit
 
 
 def _select_candidate(candidates):
-    """Respeita a escolha humana (campo 'selected'); senão usa a 1ª."""
+    """Respeita a escolha humana: capa > selecionada > 1ª candidata."""
     if not candidates:
         return None
+    for cand in candidates:
+        if cand.get("cover"):
+            return cand
     for cand in candidates:
         if cand.get("selected"):
             return cand
