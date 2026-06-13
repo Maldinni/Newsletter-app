@@ -57,7 +57,8 @@ def load_config(args: argparse.Namespace) -> Dict[str, Any]:
         "llm": cluster_definition_file["llm"],
         "trends": trends_file["trends"],
         "dimensions": dimensions_file["dimensions"],
-        "trend_ranking": cluster_definition_file["trend_ranking"]
+        "trend_ranking": cluster_definition_file["trend_ranking"],
+        "post_generation": cluster_definition_file["post_generation"]
     }
 
     if args.max_articles_per_source is not None:

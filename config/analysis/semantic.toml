@@ -46,6 +46,14 @@ weight_recent_volume = 0.30
 weight_recency = 0.20
 weight_size = 0.15
 
+[post_generation]
+max_source_articles = 6   # nº de matérias do cluster que alimentam o LLM
+num_slides = 5            # nº de cards de conteúdo do carrossel
+top_k = 2                 # quantos posts gerar (2x/dia)
+audience = "público conservador brasileiro de direita"
+tone = "direto, firme e editorializado, sem inventar fatos"
+ai_disclosure = "Conteúdo produzido com auxílio de inteligência artificial a partir das fontes citadas."
+
 [llm]
 temperature = 0.1
 model_name = 'qwen2.5:7b'

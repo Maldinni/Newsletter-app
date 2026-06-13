@@ -3,3 +3,6 @@ keys.env
 __pycache__/
 *.pyc
 *.egg-info/
+
+# Conteúdo gerado pelo pipeline (posts, saídas do LLM, etc.)
+data/output/
